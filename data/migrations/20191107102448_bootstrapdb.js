@@ -26,6 +26,11 @@ exports.up = function(knex) {
       tbl.increments();
       tbl.string("name", 255).notNullable;
       tbl.string("address", 255);
+    })
+    .createTable("zoo_animal", tbl => {
+      tbl.increments();
+      tbl.date("from", 255).notNullable;
+      tbl.date("to", 255);
       tbl
         .integer("zoo_id")
         .unsigned()
@@ -34,11 +39,6 @@ exports.up = function(knex) {
         .integer("animal_id")
         .unsigned()
         .notNullable();
-    })
-    .createTable("zoo_animal", tbl => {
-      tbl.increments();
-      tbl.date("from", 255).notNullable;
-      tbl.date("to", 255);
     });
 };
 
